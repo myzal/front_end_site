@@ -1,0 +1,331 @@
+$icon-font-path: '../fonts/';
+
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+$blue: #6EE6E6;
+$pink: #d70a57;
+$white: #fffeff;
+$black: #010101;
+
+@mixin borderRadius($size) {
+  -webkit-border-radius: $size;
+  -moz-border-radius: $size;
+  -o-border-radius: $size;
+  border-radius: $size;
+}
+
+@mixin buttonStandard($display: inline-block, $border: 27px, $text-transform: uppercase ) {
+  display: $display;
+  @include borderRadius($border);
+  text-transform: $text-transform;
+  outline: none;
+
+}
+
+@mixin backgroundStandard($image,$repeat:no-repeat, $backgroundSize:cover) {
+  background: url($image) $repeat;
+  background-size: $backgroundSize;
+}
+
+h1 {
+  font-size: 104px;
+}
+
+h2 {
+  font-size: 44px;
+}
+
+header {
+  padding-bottom: 180px;
+  color: white;
+  @include backgroundStandard("http://placehold.it/1920x1145");
+  .login-row {
+    margin: 0;
+    h3 {
+      margin-top: 50px;
+      padding-left: 75px;
+    }
+    .log-form {
+      margin-top: 75px;
+      float: right;
+      text-align: right;
+      padding-right: 70px;
+    }
+    #save-me {
+      @include buttonStandard();
+      background-color: $blue;
+      color: $white;
+      border: none;
+      margin-right: 40px;
+    }
+    #login {
+      @include buttonStandard();
+      background-color: transparent;
+      border-color: $white;
+      color: $white;
+    }
+  }
+  .text-title {
+    margin-top: 250px;
+    text-transform: uppercase;
+  }
+
+  .career {
+
+    margin-top: 90px;
+    .title-contest {
+      font-size: 20px;
+
+      span {
+        text-transform: uppercase;
+      }
+    }
+    .info-box {
+      @include backgroundStandard("http://placehold.it/465x265", no-repeat, inherit);
+      width: 465px;
+      height: 265px;
+      text-align: center;
+      vertical-align: middle;
+      display: table-cell;
+      line-height: 1.1;
+      .city {
+        font-size: 80px;
+        text-transform: uppercase;
+      }
+      .date {
+        font-size: 50px;
+      }
+      a {
+        color: $white;
+      }
+    }
+  }
+}
+
+section {
+  padding: 110px 0;
+  @include backgroundStandard("http://placehold.it/1920x890");
+  color: white;
+  h2 {
+    font-weight: bold;
+  }
+  p {
+    margin-top: 60px;
+    margin-bottom: 120px;
+  }
+  .info-box-job {
+    background: url(http://placehold.it/415x325);
+    max-width: 420px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 42px;
+  }
+  img.baner {
+    display: inline-block;
+  }
+}
+
+footer {
+  padding: 110px 0;
+  h2 {
+    color: $pink;
+    margin-bottom: 60px;
+    span {
+      font-weight: bold;
+    }
+  }
+  p {
+    font-size: 21px;
+    margin-bottom: 130px;
+  }
+  .send-text {
+    color: $pink;
+    font-size: 22px;
+  }
+  .number-circle {
+    margin-right: 30px;
+    display: inline-block;
+    @include borderRadius(50%);
+    width: 68px;
+    height: 68px;
+    padding: 13px;
+    background: $white;
+    border: 2px solid $black;
+    color: $black;
+    text-align: center;
+    font: 32px Arial, sans-serif;
+    cursor: pointer;
+    &.active {
+      background: $pink;
+      color: $white;
+      border: 2px solid $pink;
+    }
+  }
+  .recrutation-row {
+    display: table;
+    table-layout: fixed;
+  }
+  .recrutation-column {
+    display: table-cell;
+    vertical-align: bottom;
+    float: none;
+  }
+}
+
+/*MOBILE*/
+@media only screen and (max-width: 1200px) {
+  h1 {
+    font-size: 81px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  header {
+    padding-bottom: 100px;
+    .text-title {
+      margin-top: 50px;
+    }
+  }
+  section {
+    .info-box-job {
+      font-size: 29px;
+    }
+  }
+
+  footer {
+    .number-circle {
+      margin-right: 15px;
+
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  h1 {
+    font-size: 60px;
+  }
+  h2 {
+    font-size: 31px;
+  }
+  header {
+    padding-bottom: 0;
+    h1 {
+      text-align: center;
+    }
+    .career {
+      .title-contest {
+        text-align: center;
+      }
+      .info-box {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  section {
+    p {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+    .info-box-job {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .big-thumbnail {
+      text-align: center;
+      img {
+        padding: 0 40px;
+
+      }
+    }
+    .small-thumbnail {
+      text-align: center;
+      img {
+        padding: 0 60px;
+      }
+    }
+  }
+  footer {
+    padding: 50px 0;
+
+    .recrutation-column {
+      display: unset;
+      vertical-align: unset;
+      float: unset;
+      text-align: center;
+      img {
+        margin: 0 auto;
+      }
+      .pagination {
+        width: 100%;
+      }
+    }
+    p {
+      margin-bottom: 50px;
+    }
+    .number-circle {
+      margin-right: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 44px;
+  }
+  h2 {
+    text-align: center;
+    font-size: 25px;
+  }
+  header {
+
+    .login-row {
+      #save-me {
+        margin-right: 10px;
+      }
+
+      .log-form {
+        padding-right: 15px;
+        margin-top: 15px;
+        float: unset;
+      }
+    }
+    .career .info-box {
+      width: 100%;
+    }
+  }
+  section {
+    padding: 0;
+    .info-box-job {
+      font-size: 22px;
+    }
+    .small-thumbnail img, .big-thumbnail img {
+      padding: 0;
+    }
+  }
+  footer {
+    .number-circle {
+      margin: 5px 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  header {
+    .login-row h3 {
+      padding: 0;
+      display: block;
+      text-align: center;
+    }
+    .login-row .log-form {
+      text-align: center;
+      button {
+        font-size: 16px;
+      }
+    }
+  }
+}
